@@ -1,0 +1,26 @@
+plugins {
+    id 'java-platform'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+javaPlatform {
+    allowDependencies()
+}
+
+dependencies {
+    api group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+}
+
+publishing {
+    publications {
+        myPlatform(MavenPublication) {
+            from components.javaPlatform
+        }
+    }
+}
